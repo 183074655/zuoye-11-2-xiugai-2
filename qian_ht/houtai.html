@@ -7,6 +7,7 @@
 	<script>
 		$(function(){
 			
+
 			$("button").click(function(){
 				var a1=$(".ipt1").val()
 				var a2=$(".ipt2").val()
@@ -16,20 +17,25 @@
 					data:{
 						a1:a1,
 						a2:a2
+					},
+					success:function(e){
+						$.ajax({
+							url:"http://localhost:3000/list",
+							type:"POST",
+							success:function(e){
+								var str="";
+								for(var i in e){
+									str+="<li><span class='lf'>"+e[i].name+"</span><span class='rg'>"+e[i].title+"</span></li>"
+								}
+								$("ul").html(str)
+							}
+						})
 					}
 				})
 			})
 
-			$.ajax({
-				url:"http://localhost:3000/list",
-				type:"POST",
-				success:function(e){
-					var str="";
-					for(var i in e){
-						str+=$("ul").append("<li><span class='lf'>"+e[i].name+"</span><span class='rg'>"+e[i].title+"</span></li>")
-					}
-				}
-			})
+
+			
 		})
 	</script>
 	<style>

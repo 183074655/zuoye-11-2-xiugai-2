@@ -12,8 +12,9 @@
 				success:function(e){
 					var str="";
 					for(var i in e){
-						str+=$("ul").append("<li><span class='lf'>"+e[i].name+"</span><span class='rg'>"+e[i].title+"</span></li>")
+						str+="<li><span class='lf'>"+e[i].name+"</span><span class='rg'>"+e[i].title+"</span></li>"
 					}
+					$("ul").html(str)
 				}
 			})
 		})
