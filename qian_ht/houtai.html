@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			
+			$("button").click(function(){
+				var a1=$(".ipt1").val()
+				var a2=$(".ipt2").val()
+				$.ajax({
+					url:"http://localhost:3000/add",
+					type:"POST",
+					data:{
+						a1:a1,
+						a2:a2
+					}
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="text" class="ipt1">
+	<input type="text" class="ipt2">
+	<button>提交</button>
+</body>
+</html>
