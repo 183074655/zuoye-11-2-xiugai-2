@@ -19,12 +19,40 @@
 					}
 				})
 			})
+
+			$.ajax({
+				url:"http://localhost:3000/list",
+				type:"POST",
+				success:function(e){
+					var str="";
+					for(var i in e){
+						str+=$("ul").append("<li><span class='lf'>"+e[i].name+"</span><span class='rg'>"+e[i].title+"</span></li>")
+					}
+				}
+			})
 		})
 	</script>
+	<style>
+		li{
+			list-style: none;
+			width: 500px;
+			border-bottom: dashed 1px #666;
+			margin: 0 auto;
+			height: 30px;
+			line-height: 30px;
+		}
+		.lf{
+			float: left;
+		}
+		.rg{
+			float: right;
+		}
+	</style>
 </head>
 <body>
 	<input type="text" class="ipt1">
 	<input type="text" class="ipt2">
 	<button>提交</button>
+	<ul></ul>
 </body>
 </html>
